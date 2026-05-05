@@ -1,0 +1,1 @@
+# This file is to demonstrate solving problems similar to Task 1 using an OOP
