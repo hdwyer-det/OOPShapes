@@ -5,20 +5,20 @@ import math
 # This is the parent two dimensional shape class
 class TwoDShape():
     def __init__(self):
-        self.__area = None
+        self._area = None
 
     # This method will need to be overwritten on each child class
     # as the will have different formulas for calculating the area
-    def __calculateArea(self):
+    def _calculateArea(self):
         return None
     
     # This method will only be defined on the parent class
     def getArea(self):
-        return self.__area
+        return self._area
 
 
 # This is the rectangle class
-class Rectangle():
+class Rectangle(TwoDShape):
 
     # The initialisation method is called each time
     #  a new object is instantiated
@@ -27,30 +27,30 @@ class Rectangle():
         # Call the init method on the parent class
         super().__init__()
 
-        self.__length = rectLength
-        self.__width = rectWidth
-        self.__area = self.__calculateArea()
+        self._length = rectLength
+        self._width = rectWidth
+        self._area = self._calculateArea()
 
     # This is an overwride of the calculateArea method
-    def __calculateArea(self):
-        return self.__length * self.__width
+    def _calculateArea(self):
+        return self._length * self._width
 
     def setLength(self, length):
-        self.__length = length
-        self.__area = self.calculateArea()
+        self._length = length
+        self._area = self._calculateArea()
 
     def setWidth(self, width):
-        self.__width = width
-        self.__area = self.calculateArea()
+        self._width = width
+        self._area = self._calculateArea()
 
     def getLength(self):
-        return self.__length
+        return self._length
     
     def getWidth(self):
-        return self.__width
+        return self._width
 
 # This is the triangle class
-class Triangle():
+class Triangle(TwoDShape):
 
     # The initialisation method is called each time
     #  a new object is instantiated
@@ -71,7 +71,7 @@ class Triangle():
         self.area = self.calculateArea()
 
 # This is the circle class
-class Circle():
+class Circle(TwoDShape):
 
     # The initialisation method is called each time
     #  a new object is instantiated
