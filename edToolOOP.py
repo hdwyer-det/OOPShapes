@@ -109,3 +109,33 @@ print(f"Triangle area is: {tri1.getArea()}")
 
 circ1 = Circle(5)
 print(f"Circle area is {circ1.getArea()}")
+
+print("\n")
+
+# Calculate area loop
+command = -1
+while command != 0:
+    print("\nEnter shape type to calculate area")
+    print("  1: for rectangle")
+    print("  2: for triangle")
+    print("  3: for circle")
+    print("  0: to quit")
+
+    command = int(input("Enter command: "))
+    print("")
+
+    # Create an object of the correct class
+    if command == 1:
+        length = int(input("Enter the length of the rectangle: "))
+        width = int(input("Enter the length of the rectangle: "))
+        shape = Rectangle(length, width)
+    elif command == 2:
+        base = int(input("Enter the base of the triangle: "))
+        height = int(input("Enter the height of the triangle: "))
+        shape = Triangle(base, height)
+    elif command == 3:
+        radius = int(input("Enter the radius of the circle: "))
+        shape = Circle(radius)
+
+    # print the area of the shape
+    print(f"The area of the shape is {shape.getArea()}")
