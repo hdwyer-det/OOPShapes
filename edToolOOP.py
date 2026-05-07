@@ -5,20 +5,20 @@ import math
 # This is the parent two dimensional shape class
 class TwoDShape():
     def __init__(self):
-        self.area = None
+        self.__area = None
 
     # This method will need to be overwritten on each child class
     # as the will have different formulas for calculating the area
-    def calculateArea(self):
+    def __calculateArea(self):
         return None
     
     # This method will only be defined on the parent class
     def getArea(self):
-        return self.area
+        return self.__area
 
 
 # This is the rectangle class
-class Rectangle(TwoDShape):
+class Rectangle():
 
     # The initialisation method is called each time
     #  a new object is instantiated
@@ -27,22 +27,27 @@ class Rectangle(TwoDShape):
         # Call the init method on the parent class
         super().__init__()
 
-        self.length = rectLength
-        self.width = rectWidth
-        self.area = self.calculateArea()
+        self.__length = rectLength
+        self.__width = rectWidth
+        self.__area = self.__calculateArea()
 
     # This is an overwride of the calculateArea method
-    def calculateArea(self):
-        return self.length * self.width
+    def __calculateArea(self):
+        return self.__length * self.__width
 
     def setLength(self, length):
-        self.length = length
-        self.area = self.calculateArea()
+        self.__length = length
+        self.__area = self.calculateArea()
 
     def setWidth(self, width):
-        self.width = width
-        self.area = self.calculateArea()
+        self.__width = width
+        self.__area = self.calculateArea()
 
+    def getLength(self):
+        return self.__length
+    
+    def getWidth(self):
+        return self.__width
 
 # This is the triangle class
 class Triangle():
@@ -54,7 +59,7 @@ class Triangle():
         self.height = height
         self.area = self.calculateArea()
 
-    def calculateArea(self):
+    def __calculateArea(self):
         return 0.5 * self.base * self.height
 
     def setBase(self, base):
@@ -74,7 +79,7 @@ class Circle():
         self.radius = radius
         self.area = self.calculateArea()
 
-    def calculateArea(self):
+    def __calculateArea(self):
         return math.pi * self.radius **2 
 
     def setRadius(self, radius):
@@ -89,6 +94,7 @@ print(rect1.getArea())
 
 rect2 = Rectangle(3, 5)
 print(rect2.getArea())
+
 
 # rect2.length = 100
 # print(rect2.area)
