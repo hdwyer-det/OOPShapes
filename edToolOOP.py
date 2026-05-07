@@ -55,20 +55,20 @@ class Triangle(TwoDShape):
     # The initialisation method is called each time
     #  a new object is instantiated
     def __init__(self, base, height):
-        self.base = base
-        self.height = height
-        self.area = self.calculateArea()
+        self._base = base
+        self._height = height
+        self._area = self._calculateArea()
 
-    def __calculateArea(self):
-        return 0.5 * self.base * self.height
+    def _calculateArea(self):
+        return 0.5 * self._base * self._height
 
     def setBase(self, base):
-        self.base = base
-        self.area = self.calculateArea()
+        self._base = base
+        self._area = self._calculateArea()
 
     def setHeight(self, height):
-        self.height = height
-        self.area = self.calculateArea()
+        self._height = height
+        self._area = self._calculateArea()
 
 # This is the circle class
 class Circle(TwoDShape):
@@ -76,14 +76,15 @@ class Circle(TwoDShape):
     # The initialisation method is called each time
     #  a new object is instantiated
     def __init__(self, radius):
-        self.radius = radius
-        self.area = self.calculateArea()
+        self._radius = radius
+        self._area = self._calculateArea()
 
-    def __calculateArea(self):
-        return math.pi * self.radius **2 
+    def _calculateArea(self):
+        return math.pi * self._radius **2 
 
     def setRadius(self, radius):
-        self.radius = radius
+        self._radius = radius
+        self._area = self._calculateArea()
 
 
 
